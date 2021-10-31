@@ -8,7 +8,35 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Inventaire">
 
-    <Grid>
-        
+    <Grid ShowGridLines="True" Background="NavajoWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="141*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Content="Inventaire" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="178"/>
+        <!--<StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <Menu Height="49" />
+            <Menu Height="49"/>
+        </StackPanel>-->
+        <ListBox Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" >
+            <ListBoxItem HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nom aliment"/>
+                    <Button Content="Modifier" Margin="8 0 0 0" Background="#CC5F8C5A" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+                    <Button Content="Supprimer" Margin="8 0 0 0" Background="Coral" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+        <Button Content="Créer" Grid.Column="1" Grid.Row="2" Margin="8 0 0 0" Background="LightGreen" Height="30" FontSize="12" Width="100" FontFamily="Rockwell" Click="boutonCreer_Click"/>
+
+
+
     </Grid>
 </Page>

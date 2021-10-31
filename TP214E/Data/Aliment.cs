@@ -13,5 +13,9 @@ namespace TP214E.Data
         public string Unite { get; set; }
         public DateTime ExpireLe { get; set; }
 
+        public override string ToString()
+        {
+            return this.Nom + " (" + this.ExpireLe + ")";
+        }
     }
 }

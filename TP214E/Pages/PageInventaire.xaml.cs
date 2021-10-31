@@ -24,6 +24,23 @@ namespace TP214E
         {
             InitializeComponent();
             aliments = dal.ALiments();
+
+            liste_aliments.ItemsSource = aliments;
+        }
+
+        private void boutonCreer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void boutonModifier_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void boutonSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
