@@ -7,6 +7,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Inventaire">
+    <Page.Resources>
+        <DataTemplate x:Key="AlimentMaquette">
+            <StackPanel Orientation="Horizontal">
+                <Label FontWeight="Bold" Content="{Binding Nom}"/>
+                <Label Content="{Binding Quantite}"/>
+                <Label Content="{Binding ExpireLe}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid ShowGridLines="True" Background="NavajoWhite">
         <Grid.ColumnDefinitions>
@@ -25,18 +34,18 @@
             <Menu Height="49" />
             <Menu Height="49"/>
         </StackPanel>-->
-        <ListBox Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" >
+        <!--<ListBox ItemTemplate="{DynamicResource ListBoxItemTemplate1}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" >
             <ListBoxItem HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Nom aliment"/>
-                    <Button Content="Modifier" Margin="8 0 0 0" Background="#CC5F8C5A" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonModifier_Click"/>
-                    <Button Content="Supprimer" Margin="8 0 0 0" Background="Coral" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
+                    <Label x:Name="nom_aliment" FontWeight="Bold" Content="Nom aliment"/>
+                    <Label x:Name="quantite_aliment" Content="Quantité"/>
+                    <Label x:Name="expiration_aliment" Content="Date d'expiration"/>
+                    --><!--<Button Content="Modifier" Margin="8 0 0 0" Background="#CC5F8C5A" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+                    <Button Content="Supprimer" Margin="8 0 0 0" Background="Coral" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>--><!--
                 </StackPanel>
             </ListBoxItem>
-        </ListBox>
+        </ListBox>-->
+        <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" />
         <Button Content="Créer" Grid.Column="1" Grid.Row="2" Margin="8 0 0 0" Background="LightGreen" Height="30" FontSize="12" Width="100" FontFamily="Rockwell" Click="boutonCreer_Click"/>
-
-
-
     </Grid>
 </Page>

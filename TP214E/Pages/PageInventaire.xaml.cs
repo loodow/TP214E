@@ -23,7 +23,15 @@ namespace TP214E
         public PageInventaire(DAL dal)
         {
             InitializeComponent();
-            aliments = dal.ALiments();
+            // Bd ne marche pas pour le moment
+            //aliments = dal.ALiments();
+
+            aliments = new List<Aliment>
+            {
+                new Aliment(),
+                new Aliment(),
+                new Aliment()
+            } ();
 
             liste_aliments.ItemsSource = aliments;
         }
