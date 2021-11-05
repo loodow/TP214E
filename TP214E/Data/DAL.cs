@@ -37,8 +37,19 @@ namespace TP214E.Data
 
         public void RetirerAliment(Aliment aliment)
         {
-            var filtre = Builders<Aliment>.Filter.Eq("Nom", aliment.Nom);
+            var filtre = Builders<Aliment>.Filter.Eq("_id", aliment._id);
             aliments.DeleteOne(filtre);
+        }
+
+        public void ModifierAliment(Aliment aliment, ObjectId idAliment)
+        {
+            var filtre = Builders<Aliment>.Filter.Eq("_id", idAliment);
+            var update = Builders<Aliment>.Update
+                .Set("Nom", aliment.Nom)
+                .Set("Quantite", aliment.Quantite)
+                .Set("ExpireLe", aliment.ExpireLe)
+                .Set("Unite", aliment.Unite);
+            aliments.UpdateOne(filtre, update);
         }
 
         private MongoClient OuvrirConnexion()
