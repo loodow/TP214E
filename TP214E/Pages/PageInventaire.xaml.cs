@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,26 +20,27 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        private List<Aliment> aliments;
+        private IMongoCollection<Aliment> aliments;
+        private DAL dal;
         public PageInventaire(DAL dal)
         {
             InitializeComponent();
-            // Bd ne marche pas pour le moment
-            //aliments = dal.ALiments();
+            this.dal = dal;
+            aliments = dal.Aliments();
 
-            aliments = new List<Aliment>
-            {
-                new Aliment(),
-                new Aliment(),
-                new Aliment()
-            } ();
-
-            liste_aliments.ItemsSource = aliments;
+            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
 
         private void boutonCreer_Click(object sender, RoutedEventArgs e)
         {
+            Aliment aliment = new Aliment();
+            aliment.Nom = txtb_creer_nom_aliment.Text;
+            aliment.Quantite = Convert.ToInt32(txtb_creer_quantite_aliment.Text);
+            aliment.ExpireLe = Convert.ToDateTime(txtb_creer_date_expiration_aliment.Text);
+            aliment.Unite = txtb_creer_nom_aliment.Text;
 
+            dal.AjouterAliment(aliment);
+            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
 
         private void boutonModifier_Click(object sender, RoutedEventArgs e)

@@ -26,8 +26,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="32*"/>
             <RowDefinition Height="141*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="32*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Content="Inventaire" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="178"/>
         <!--<StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
@@ -40,12 +40,24 @@
                     <Label x:Name="nom_aliment" FontWeight="Bold" Content="Nom aliment"/>
                     <Label x:Name="quantite_aliment" Content="Quantité"/>
                     <Label x:Name="expiration_aliment" Content="Date d'expiration"/>
-                    --><!--<Button Content="Modifier" Margin="8 0 0 0" Background="#CC5F8C5A" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonModifier_Click"/>
-                    <Button Content="Supprimer" Margin="8 0 0 0" Background="Coral" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>--><!--
+                    -->
+        <!--<Button Content="Modifier" Margin="8 0 0 0" Background="#CC5F8C5A" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+                    <Button Content="Supprimer" Margin="8 0 0 0" Background="Coral" FontSize="12" Width="67" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>-->
+        <!--
                 </StackPanel>
             </ListBoxItem>
         </ListBox>-->
         <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" />
-        <Button Content="Créer" Grid.Column="1" Grid.Row="2" Margin="8 0 0 0" Background="LightGreen" Height="30" FontSize="12" Width="100" FontFamily="Rockwell" Click="boutonCreer_Click"/>
+        <Button Content="Créer" Grid.Column="1" Grid.Row="3" Margin="10,10,452,28" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonCreer_Click"/>
+        <Label Margin="4,5,560,5" Grid.Row="2" Grid.Column="1">Nom</Label>
+        <TextBox x:Name="txtb_creer_nom_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="40,8,465,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_quantite_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="193,8,369,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_date_expiration_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="287,8,211,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_unite_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="432,8,73,8" Grid.Row="2"/>
+        <Label Margin="138,5,401,5" Grid.Row="2" Grid.Column="1" Content="Quantité"/>
+        <Label Margin="231,5,308,5" Grid.Row="2" Grid.Column="1" Content="Expire le"/>
+        <Label Margin="391,5,168,5" Grid.Row="2" Grid.Column="1" Content="Unité"/>
+        <Button Content="Modifier" Grid.Column="1" Grid.Row="3" Margin="231,10,231,28" Background="AliceBlue" FontSize="12" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+        <Button Content="Supprimer" Grid.Column="1" Grid.Row="3" Margin="452,10,10,28" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
     </Grid>
 </Page>
