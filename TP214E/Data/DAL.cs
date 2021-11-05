@@ -35,6 +35,12 @@ namespace TP214E.Data
             await aliments.InsertOneAsync(aliment);
         }
 
+        public void RetirerAliment(Aliment aliment)
+        {
+            var filtre = Builders<Aliment>.Filter.Eq("Nom", aliment.Nom);
+            aliments.DeleteOne(filtre);
+        }
+
         private MongoClient OuvrirConnexion()
         {
             MongoClient dbClient = null;

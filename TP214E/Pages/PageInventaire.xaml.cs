@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,7 @@ namespace TP214E
         public PageInventaire(DAL dal)
         {
             InitializeComponent();
+
             this.dal = dal;
             aliments = dal.Aliments();
 
@@ -32,6 +34,19 @@ namespace TP214E
         }
 
         private void boutonCreer_Click(object sender, RoutedEventArgs e)
+        {
+            CreerAliment();
+        }
+
+        private void SupprimerAlimentSelectionne()
+        {
+            Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
+
+            dal.RetirerAliment(alimentSelectionne);
+            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
+        }
+
+        private void CreerAliment()
         {
             Aliment aliment = new Aliment();
             aliment.Nom = txtb_creer_nom_aliment.Text;
@@ -43,14 +58,9 @@ namespace TP214E
             liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
 
-        private void boutonModifier_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void boutonSupprimer_Click(object sender, RoutedEventArgs e)
         {
-
+            SupprimerAlimentSelectionne();
         }
     }
 }

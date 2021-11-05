@@ -13,6 +13,7 @@
                 <Label FontWeight="Bold" Content="{Binding Nom}"/>
                 <Label Content="{Binding Quantite}"/>
                 <Label Content="{Binding ExpireLe}"/>
+                <Label Content="{Binding Unite}"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
@@ -47,17 +48,16 @@
                 </StackPanel>
             </ListBoxItem>
         </ListBox>-->
-        <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262" />
+        <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262"/>
         <Button Content="Créer" Grid.Column="1" Grid.Row="3" Margin="10,10,452,28" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonCreer_Click"/>
-        <Label Margin="4,5,560,5" Grid.Row="2" Grid.Column="1">Nom</Label>
-        <TextBox x:Name="txtb_creer_nom_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="40,8,465,8" Grid.Row="2"/>
-        <TextBox x:Name="txtb_creer_quantite_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="193,8,369,8" Grid.Row="2"/>
-        <TextBox x:Name="txtb_creer_date_expiration_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="287,8,211,8" Grid.Row="2"/>
-        <TextBox x:Name="txtb_creer_unite_aliment" TextWrapping="Wrap" Grid.Column="1" Margin="432,8,73,8" Grid.Row="2"/>
-        <Label Margin="138,5,401,5" Grid.Row="2" Grid.Column="1" Content="Quantité"/>
-        <Label Margin="231,5,308,5" Grid.Row="2" Grid.Column="1" Content="Expire le"/>
-        <Label Margin="391,5,168,5" Grid.Row="2" Grid.Column="1" Content="Unité"/>
-        <Button Content="Modifier" Grid.Column="1" Grid.Row="3" Margin="231,10,231,28" Background="AliceBlue" FontSize="12" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+        <Label Margin="4,5,540,5" Grid.Row="2" Grid.Column="1">Nom</Label>
+        <TextBox x:Name="txtb_creer_nom_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Nom}" TextWrapping="Wrap" Grid.Column="1" Margin="40,8,467,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_quantite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Quantite}" TextWrapping="Wrap" Grid.Column="1" Margin="216,8,346,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_date_expiration_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.ExpireLe}" TextWrapping="Wrap" Grid.Column="1" Margin="323,8,175,8" Grid.Row="2"/>
+        <TextBox x:Name="txtb_creer_unite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Unite}" TextWrapping="Wrap" Grid.Column="1" Margin="495,8,10,8" Grid.Row="2"/>
+        <Label Margin="152,5,374,5" Grid.Row="2" Grid.Column="1" Content="Quantité"/>
+        <Label Margin="254,5,266,5" Grid.Row="2" Grid.Column="1" Content="Expire le"/>
+        <Label Margin="432,5,105,5" Grid.Row="2" Grid.Column="1" Content="Unité"/>
         <Button Content="Supprimer" Grid.Column="1" Grid.Row="3" Margin="452,10,10,28" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
     </Grid>
 </Page>
