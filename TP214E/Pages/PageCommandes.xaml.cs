@@ -22,5 +22,15 @@ namespace TP214E
         {
             InitializeComponent();
         }
+
+        private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
