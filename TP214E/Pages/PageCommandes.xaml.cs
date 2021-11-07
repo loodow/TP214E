@@ -9,15 +9,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TP214E.Data;
 
-namespace TP214E.Pages
+namespace TP214E
 {
     /// <summary>
     /// Logique d'interaction pour PageCommandes.xaml
     /// </summary>
-    public partial class PageCommandes : Window
+    public partial class PageCommandes : Page
     {
-        public PageCommandes()
+        public PageCommandes(DAL dal)
         {
             InitializeComponent();
         }
