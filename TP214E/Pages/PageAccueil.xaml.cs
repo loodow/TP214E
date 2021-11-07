@@ -34,7 +34,9 @@ namespace TP214E
         }
         private void BoutonCommandes_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
+            PageCommandes frmCommandes = new PageCommandes(dal);
+
+            this.NavigationService.Navigate(frmCommandes);
         }
     }
 }
