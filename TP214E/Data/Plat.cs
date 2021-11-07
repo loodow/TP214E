@@ -5,16 +5,16 @@ using System.Text;
 
 namespace TP214E.Data
 {
-    public class Commandes
+    public class Plat
     {
-        public Commandes()
+        public Plat()
         {
 
         }
 
         public ObjectId _id { get; set; }
-        public List<Plat> PlatsCommandes { get; set; }
-        public string TypePaiement { get; set; }
-
+        public string Nom { get; set; }
+        public List<Aliment> Recette { get; set; }
+        public double Prix { get; set; }
     }
 }
