@@ -12,11 +12,14 @@ namespace TP214E.Data
     {
         public MongoClient mongoDBClient;
         private IMongoCollection<Aliment> aliments;
+        private IMongoCollection<Plat> plats;
+
         public DAL()
         {
             mongoDBClient = OuvrirConnexion();
         }
 
+        //DAL Aliments
         public IMongoCollection<Aliment> Aliments()
         {
             try
@@ -29,6 +32,7 @@ namespace TP214E.Data
             }
             return aliments;
         }
+
 
         public async void AjouterAliment(Aliment aliment)
         {
@@ -50,6 +54,23 @@ namespace TP214E.Data
                 .Set("ExpireLe", aliment.ExpireLe)
                 .Set("Unite", aliment.Unite);
             aliments.UpdateOne(filtre, update);
+        }
+
+        //DAL Plats 
+
+
+        public IMongoCollection<Plat> Plats()
+        {
+            try
+            {
+                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
+                plats = db.GetCollection<Plat>("Plat");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return plats;
         }
 
         private MongoClient OuvrirConnexion()

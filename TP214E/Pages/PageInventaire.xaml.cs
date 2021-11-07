@@ -76,6 +76,8 @@ namespace TP214E
             liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
 
+
+
         private void boutonModifier_Click(object sender, RoutedEventArgs e)
         {
             ModifierAliment();
