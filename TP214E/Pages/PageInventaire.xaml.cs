@@ -1,17 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TP214E.Data;
 
 namespace TP214E
@@ -22,23 +12,30 @@ namespace TP214E
     public partial class PageInventaire : Page
     {
         private IMongoCollection<Aliment> aliments;
-        private DAL dal;
+        private DALAliments dal;
 
-        public PageInventaire(DAL dal)
+        public PageInventaire(DALAliments dal)
         {
             InitializeComponent();
 
             this.dal = dal;
             aliments = dal.Aliments();
 
-            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
+            RafraichirListeAliments();
         }
 
         private void boutonCreer_Click(object sender, RoutedEventArgs e)
         {
             CreerAliment();
+            RafraichirListeAliments();
         }
 
+        private void CreerAliment()
+        {
+            Aliment aliment = AssignerEntreesFormVersAliment();
+
+            dal.AjouterAliment(aliment);
+        }
         private void SupprimerAlimentSelectionne()
         {
             Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
@@ -46,40 +43,36 @@ namespace TP214E
             dal.RetirerAliment(alimentSelectionne);
         }
 
-        private void CreerAliment()
+        private void boutonSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            SupprimerAlimentSelectionne();
+            RafraichirListeAliments();
+        }
+
+        private void ModifierAlimentSelectionne()
+        {
+            Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
+            Aliment aliment = AssignerEntreesFormVersAliment();
+
+            dal.ModifierAliment(aliment, alimentSelectionne._id);
+        }
+
+        private void boutonModifier_Click(object sender, RoutedEventArgs e)
+        {
+            ModifierAlimentSelectionne();
+            RafraichirListeAliments();
+        }
+        private Aliment AssignerEntreesFormVersAliment()
         {
             Aliment aliment = new Aliment();
             aliment.Nom = txtb_creer_nom_aliment.Text;
             aliment.Quantite = Convert.ToInt32(txtb_creer_quantite_aliment.Text);
             aliment.ExpireLe = Convert.ToDateTime(txtb_creer_date_expiration_aliment.Text);
             aliment.Unite = txtb_creer_nom_aliment.Text;
-
-            dal.AjouterAliment(aliment);
-            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
+            return aliment;
         }
-
-        private void boutonSupprimer_Click(object sender, RoutedEventArgs e)
+        private void RafraichirListeAliments()
         {
-            SupprimerAlimentSelectionne();
-            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
-        }
-
-        private void ModifierAliment()
-        {
-            Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
-            Aliment aliment = new Aliment();
-            aliment.Nom = txtb_creer_nom_aliment.Text;
-            aliment.Quantite = Convert.ToInt32(txtb_creer_quantite_aliment.Text);
-            aliment.ExpireLe = Convert.ToDateTime(txtb_creer_date_expiration_aliment.Text);
-            aliment.Unite = txtb_creer_unite_aliment.Text;
-
-            dal.ModifierAliment(aliment, alimentSelectionne._id);
-            liste_aliments.ItemsSource = aliments.Aggregate().ToList();
-        }
-
-        private void boutonModifier_Click(object sender, RoutedEventArgs e)
-        {
-            ModifierAliment();
             liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
     }
