@@ -23,6 +23,7 @@ namespace TP214E
     {
         private IMongoCollection<Aliment> aliments;
         private DAL dal;
+
         public PageInventaire(DAL dal)
         {
             InitializeComponent();
