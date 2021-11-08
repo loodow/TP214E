@@ -13,6 +13,8 @@
         <Button Content="Ajouter Plat" Margin="40,391,575,29" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonAjouterPlat_Click"/>
         <ListBox Background="PapayaWhip" Margin="303,196,303,29"/>
         <Label Content="Gestions Commandes" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="440" Margin="0,10,0,0"/>
+        <ListBox Background="PapayaWhip" Margin="40,84,566,142"  x:Name="liste_plats"/>
+        <ListBox Background="PapayaWhip" Margin="565,84,41,141"/>
 
 
 
