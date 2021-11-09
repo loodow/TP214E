@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,18 @@ namespace TP214E
     /// </summary>
     public partial class PageCommandes : Page
     {
+        private IMongoCollection<Plat> plats;
+        private DAL dal;
+
+
         public PageCommandes(DAL dal)
         {
             InitializeComponent();
+
+            this.dal = dal;
+            plats = dal.Plats();
+
+            liste_plats.ItemsSource = plats.Aggregate().ToList();
         }
 
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
@@ -32,5 +42,6 @@ namespace TP214E
         {
 
         }
+
     }
 }
