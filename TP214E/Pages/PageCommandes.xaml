@@ -26,6 +26,7 @@
         <Label Content="Panier" HorizontalAlignment="Left" Margin="303,167,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
         <Label Content="Plats" HorizontalAlignment="Left" Margin="40,55,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
         <Label Content="Historique des commandes" HorizontalAlignment="Left" Margin="574,55,0,0" VerticalAlignment="Top" Width="160" Height="24"/>
+        <Button Content="Retirer plat" Margin="377,162,303,262" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="bouttonRetirer_Click"/>
 
 
 
