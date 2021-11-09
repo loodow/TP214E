@@ -40,6 +40,8 @@ namespace TP214E
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
         {
+            Plat platSelectionne = (Plat)liste_plats.SelectedItem;
+            liste_panier.Items.Add(platSelectionne);
 
         }
 
