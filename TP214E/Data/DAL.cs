@@ -65,7 +65,7 @@ namespace TP214E.Data
             try
             {
                 IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
-                plats = db.GetCollection<Plat>("plats");
+                plats = db.GetCollection<Plat>("Plats");
             }
             catch (Exception ex)
             {
