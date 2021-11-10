@@ -48,7 +48,7 @@ namespace TP214E
         private void bouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             Plat platSelectionne = (Plat)liste_panier.SelectedItem;
-            liste_panier.Items.Remove(platSelectionne);S
+            liste_panier.Items.Remove(platSelectionne);
         }
     }
 }

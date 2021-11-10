@@ -13,6 +13,8 @@ namespace TP214E.Data
         public MongoClient mongoDBClient;
         private IMongoCollection<Aliment> aliments;
         private IMongoCollection<Plat> plats;
+        private IMongoCollection<Commande> commandes;
+
 
         public DAL()
         {
@@ -72,6 +74,14 @@ namespace TP214E.Data
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return plats;
+        }
+
+        //DAL Commandes
+
+
+        public async void AjouterAliment(Commande commande)
+        {
+            await commandes.InsertOneAsync(commande);
         }
 
         private MongoClient OuvrirConnexion()

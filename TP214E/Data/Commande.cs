@@ -5,9 +5,9 @@ using System.Text;
 
 namespace TP214E.Data
 {
-    public class Commandes
+    public class Commande
     {
-        public Commandes()
+        public Commande()
         {
 
         }
