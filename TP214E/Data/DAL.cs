@@ -78,8 +78,22 @@ namespace TP214E.Data
 
         //DAL Commandes
 
+        public IMongoCollection<Commande> Commandes()
+        {
+            try
+            {
+                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
+                commandes = db.GetCollection<Commande>("Commandes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return commandes;
+        }
 
-        public async void AjouterAliment(Commande commande)
+
+        public async void AjouterCommande(Commande commande)
         {
             await commandes.InsertOneAsync(commande);
         }
