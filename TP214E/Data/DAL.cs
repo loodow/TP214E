@@ -18,11 +18,6 @@ namespace TP214E.Data
             mongoDBClient = OuvrirConnexion();
         }
 
-        
-
-
-        
-
         private MongoClient OuvrirConnexion()
         {
             MongoClient dbClient = null;

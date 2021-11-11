@@ -11,7 +11,7 @@ namespace TP214E.Data
         private IMongoCollection<Commande> commandes;
         private IMongoCollection<Plat> plats;
         private const string NOM_COLLECTION_COMMANDES = "Commandes";
-        //DAL Commandes
+        private const string NOM_COLLECTION_PLATS = "Plats";
 
         public IMongoCollection<Commande> Commandes()
         {
@@ -22,7 +22,7 @@ namespace TP214E.Data
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MESSAGE_ERR_CONNEXION_MONGODB + ex.Message, ERREUR, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return commandes;
         }
@@ -37,12 +37,12 @@ namespace TP214E.Data
         {
             try
             {
-                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
-                plats = db.GetCollection<Plat>("Plats");
+                IMongoDatabase db = mongoDBClient.GetDatabase(NOM_BD);
+                plats = db.GetCollection<Plat>(NOM_COLLECTION_PLATS);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MESSAGE_ERR_CONNEXION_MONGODB + ex.Message, ERREUR, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return plats;
         }
