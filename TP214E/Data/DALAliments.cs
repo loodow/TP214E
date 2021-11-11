@@ -9,11 +9,12 @@ namespace TP214E.Data
     {
         private IMongoCollection<Aliment> aliments;
         private const string NOM_COLLECTION_ALIMENTS = "Aliments";
+
         public IMongoCollection<Aliment> Aliments()
         {
             try
             {
-                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
+                IMongoDatabase db = mongoDBClient.GetDatabase(NOM_BD);
                 aliments = db.GetCollection<Aliment>(NOM_COLLECTION_ALIMENTS);
             }
             catch (Exception ex)
