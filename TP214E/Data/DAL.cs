@@ -15,7 +15,6 @@ namespace TP214E.Data
         private IMongoCollection<Plat> plats;
         private IMongoCollection<Commande> commandes;
 
-
         public DAL()
         {
             mongoDBClient = OuvrirConnexion();

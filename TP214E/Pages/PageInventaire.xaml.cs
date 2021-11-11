@@ -6,9 +6,6 @@ using TP214E.Data;
 
 namespace TP214E
 {
-    /// <summary>
-    /// Logique d'interaction pour Inventaire.xaml
-    /// </summary>
     public partial class PageInventaire : Page
     {
         private IMongoCollection<Aliment> aliments;
@@ -32,10 +29,20 @@ namespace TP214E
 
         private void CreerAliment()
         {
-            Aliment aliment = AssignerEntreesFormVersAliment();
+            Aliment aliment = AssignerEntreesFormulaireVersAliment();
 
             dal.AjouterAliment(aliment);
         }
+        private Aliment AssignerEntreesFormulaireVersAliment()
+        {
+            Aliment aliment = new Aliment();
+            aliment.Nom = creer_nom_aliment.Text;
+            aliment.Quantite = Convert.ToInt32(creer_quantite_aliment.Text);
+            aliment.ExpireLe = Convert.ToDateTime(creer_date_expiration_aliment.Text);
+            aliment.Unite = creer_nom_aliment.Text;
+            return aliment;
+        }
+
         private void SupprimerAlimentSelectionne()
         {
             Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
@@ -52,27 +59,17 @@ namespace TP214E
         private void ModifierAlimentSelectionne()
         {
             Aliment alimentSelectionne = (Aliment)liste_aliments.SelectedItem;
-            Aliment aliment = AssignerEntreesFormVersAliment();
+            Aliment aliment = AssignerEntreesFormulaireVersAliment();
 
             dal.ModifierAliment(aliment, alimentSelectionne._id);
         }
-
-
 
         private void boutonModifier_Click(object sender, RoutedEventArgs e)
         {
             ModifierAlimentSelectionne();
             RafraichirListeAliments();
         }
-        private Aliment AssignerEntreesFormVersAliment()
-        {
-            Aliment aliment = new Aliment();
-            aliment.Nom = txtb_creer_nom_aliment.Text;
-            aliment.Quantite = Convert.ToInt32(txtb_creer_quantite_aliment.Text);
-            aliment.ExpireLe = Convert.ToDateTime(txtb_creer_date_expiration_aliment.Text);
-            aliment.Unite = txtb_creer_nom_aliment.Text;
-            return aliment;
-        }
+
         private void RafraichirListeAliments()
         {
             liste_aliments.ItemsSource = aliments.Aggregate().ToList();
