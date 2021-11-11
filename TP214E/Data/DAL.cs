@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace TP214E.Data
@@ -11,6 +8,9 @@ namespace TP214E.Data
     public class DAL : IDAL
     {
         public MongoClient mongoDBClient;
+        private const string CHAINE_CONNEXION_MONGODB = "mongodb://localhost:27017/TP2DB";
+        protected const string MESSAGE_ERR_CONNEXION_MONGODB = "Impossible de se connecter à la base de données ";
+        protected const string ERREUR = "Erreur";
         private IMongoCollection<Aliment> aliments;
         private IMongoCollection<Plat> plats;
         private IMongoCollection<Commande> commandes;
@@ -103,14 +103,13 @@ namespace TP214E.Data
             MongoClient dbClient = null;
             try
             {
-                dbClient = new MongoClient("mongodb://localhost:27017/TP2DB");
+                dbClient = new MongoClient(CHAINE_CONNEXION_MONGODB);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MESSAGE_ERR_CONNEXION_MONGODB + ex.Message, ERREUR, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return dbClient;
         }
-
     }
 }
