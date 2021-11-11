@@ -6,12 +6,11 @@ namespace TP214E
 {
     public partial class PageAccueil : Page
     {
-        private DAL dal;
+        private DALCommandes dalCommandes;
         private DALAliments dalAliments;
         public PageAccueil()
         {
             InitializeComponent();
-            dal = new DAL();
         }
 
         private void BoutonInventaire_Click(object sender, RoutedEventArgs e)
@@ -23,7 +22,9 @@ namespace TP214E
         }
         private void BoutonCommandes_Click(object sender, RoutedEventArgs e)
         {
-            PageCommandes frmCommandes = new PageCommandes(dal);
+            dalCommandes = new DALCommandes();
+
+            PageCommandes frmCommandes = new PageCommandes(dalCommandes);
 
             NavigationService.Navigate(frmCommandes);
         }
