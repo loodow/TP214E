@@ -10,19 +10,19 @@ namespace TP214E
     {
         private IMongoCollection<Plat> plats;
         private IMongoCollection<Commande> commandes;
-        private DAL dal;
+        private DALCommandes dalCommandes;
         private List<Plat> PlatsDansPanier;
 
 
-        public PageCommandes(DAL dal)
+        public PageCommandes(DALCommandes dalCommandes)
         {
             InitializeComponent();
 
             PlatsDansPanier = new List<Plat>();
 
-            this.dal = dal;
-            plats = dal.Plats();
-            commandes = dal.Commandes();
+            this.dalCommandes = dalCommandes;
+            plats = dalCommandes.Plats();
+            commandes = dalCommandes.Commandes();
 
             liste_plats.ItemsSource = plats.Aggregate().ToList();
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
@@ -33,7 +33,7 @@ namespace TP214E
         {
             var commandeACreer = new Commande();
             commandeACreer.PlatsCommande = PlatsDansPanier;
-            dal.AjouterCommande(commandeACreer);
+            dalCommandes.AjouterCommande(commandeACreer);
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
             liste_panier.Items.Clear();
             PlatsDansPanier.Clear();

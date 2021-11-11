@@ -11,9 +11,7 @@ namespace TP214E.Data
         private const string CHAINE_CONNEXION_MONGODB = "mongodb://localhost:27017/TP2DB";
         protected const string MESSAGE_ERR_CONNEXION_MONGODB = "Impossible de se connecter à la base de données ";
         protected const string ERREUR = "Erreur";
-        private IMongoCollection<Aliment> aliments;
-        private IMongoCollection<Plat> plats;
-        private IMongoCollection<Commande> commandes;
+        protected const string NOM_BD = "TP2DB";
 
         public DAL()
         {
@@ -21,44 +19,9 @@ namespace TP214E.Data
         }
 
         
-        //DAL Plats 
 
 
-        public IMongoCollection<Plat> Plats()
-        {
-            try
-            {
-                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
-                plats = db.GetCollection<Plat>("Plats");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            return plats;
-        }
-
-        //DAL Commandes
-
-        public IMongoCollection<Commande> Commandes()
-        {
-            try
-            {
-                IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
-                commandes = db.GetCollection<Commande>("Commandes");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            return commandes;
-        }
-
-
-        public async void AjouterCommande(Commande commande)
-        {
-            await commandes.InsertOneAsync(commande);
-        }
+        
 
         private MongoClient OuvrirConnexion()
         {
