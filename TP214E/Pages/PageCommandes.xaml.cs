@@ -22,14 +22,14 @@ namespace TP214E
         private IMongoCollection<Plat> plats;
         private IMongoCollection<Commande> commandes;
         private DAL dal;
-        private List<string> PlatsDansPanier;
+        private List<Plat> PlatsDansPanier;
 
 
         public PageCommandes(DAL dal)
         {
             InitializeComponent();
 
-            PlatsDansPanier = new List<string>();
+            PlatsDansPanier = new List<Plat>();
 
             this.dal = dal;
             plats = dal.Plats();
@@ -42,19 +42,19 @@ namespace TP214E
 
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
         {
-            liste_panier.Items.Clear();
-            List<string> platsDeLaCommande = new List<string>();
 
-            foreach (string plat in PlatsDansPanier)
+            List<Plat> platsDeLaCommande = new List<Plat>();
+
+            foreach (Plat plat in PlatsDansPanier)
             {
                 platsDeLaCommande.Add(plat);
             }
 
           
 
-            var commandeCreer = new Commande();
-            commandeCreer.PlatsCommandes = platsDeLaCommande;
-            dal.AjouterCommande(commandeCreer);
+            var commandeACreer = new Commande();
+            commandeACreer.PlatsCommandes = platsDeLaCommande;
+            dal.AjouterCommande(commandeACreer);
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
             liste_panier.Items.Clear();
             PlatsDansPanier.Clear();
@@ -64,16 +64,24 @@ namespace TP214E
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
         {
-            Plat platSelectionne = (Plat)liste_plats.SelectedItem;
-            liste_panier.Items.Add(platSelectionne);
-            PlatsDansPanier.Add(platSelectionne.Nom);
+            if (liste_plats.SelectedItem != null) 
+            { 
+                Plat platSelectionne = (Plat)liste_plats.SelectedItem;
+                liste_panier.Items.Add(platSelectionne);
+                PlatsDansPanier.Add(platSelectionne);
+            }
+                
 
         }
 
         private void bouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
-            Plat platSelectionne = (Plat)liste_panier.SelectedItem;
-            liste_panier.Items.Remove(platSelectionne);
+            if(liste_panier.SelectedItem != null)
+            {
+                Plat platSelectionne = (Plat)liste_panier.SelectedItem;
+                liste_panier.Items.Remove(platSelectionne);
+            }
+            
         }
     }
 }
