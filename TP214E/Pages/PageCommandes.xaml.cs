@@ -42,24 +42,12 @@ namespace TP214E
 
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
         {
-
-            List<Plat> platsDeLaCommande = new List<Plat>();
-
-            foreach (Plat plat in PlatsDansPanier)
-            {
-                platsDeLaCommande.Add(plat);
-            }
-
-          
-
             var commandeACreer = new Commande();
-            commandeACreer.PlatsCommandes = platsDeLaCommande;
+            commandeACreer.PlatsCommande = PlatsDansPanier;
             dal.AjouterCommande(commandeACreer);
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
             liste_panier.Items.Clear();
             PlatsDansPanier.Clear();
-
-
         }
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
