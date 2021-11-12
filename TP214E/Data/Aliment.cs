@@ -3,7 +3,7 @@ using System;
 
 namespace TP214E.Data
 {
-    public class Aliment : IAliment
+    public class Aliment
     {
         public Aliment()
         {

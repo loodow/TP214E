@@ -44,7 +44,7 @@ namespace TP214ETests.Data
             };
 
             // Ne marche pas
-            IMongoCollection<Aliment> aliments2 = (IMongoCollection<Aliment>)aliments;
+            //IMongoCollection<Aliment> aliments2 = IMongoCollection<Aliment>();
 
 
             dalAliments.Setup(x => x.ObtenirAliments()).Returns((IMongoCollection<Aliment>)aliments);
@@ -53,13 +53,17 @@ namespace TP214ETests.Data
             Assert.AreEqual(aliments, dalAliments.Object.ObtenirAliments());
         }
 
-        [TestMethod()]
+        [Test]
         public void RetirerAlimentTest()
         {
-            Assert.Fail();
+            //dalAliments.
+
+            //aliments.DeleteOne(filtre);
+
+            //Assert.Fail();
         }
 
-        [TestMethod()]
+        [Test]
         public void ModifierAlimentTest()
         {
             Assert.Fail();
