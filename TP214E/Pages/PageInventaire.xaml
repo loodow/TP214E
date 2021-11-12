@@ -12,7 +12,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label FontFamily="Rockwell" FontSize="14" FontWeight="Bold" Content="{Binding Nom}"/>
                 <Label Foreground="#1B2B3F" FontFamily="Rockwell" FontSize="14" Content="{Binding Quantite}"/>
-                <Label FontFamily="Rockwell" FontSize="14" Content="{Binding ExpireLe}"/>
+                <Label FontFamily="Rockwell" FontSize="14" Content="{Binding ExpireLeSimplifie}"/>
                 <Label FontFamily="Rockwell" FontSize="14" Content="{Binding Unite}"/>
             </StackPanel>
         </DataTemplate>
@@ -40,7 +40,7 @@
         <Label Margin="26,5,718,5" Grid.Row="2" Foreground="White" FontFamily="Rockwell" FontSize="18">Nom</Label>
         <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_nom_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Nom, Mode=OneWay}" TextWrapping="Wrap" Margin="91,8,590,8" Grid.Row="2"/>
         <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_quantite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Quantite, Mode=OneWay}" TextWrapping="Wrap" Margin="297,8,446,8" Grid.Row="2"/>
-        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_date_expiration_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.ExpireLe, Mode=OneWay}" TextWrapping="Wrap" Margin="476,8,203,8" Grid.Row="2"/>
+        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_date_expiration_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.ExpireLeSimplifie, Mode=OneWay}" TextWrapping="Wrap" Margin="476,8,203,8" Grid.Row="2"/>
         <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_unite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Unite, Mode=OneWay}" TextWrapping="Wrap" Margin="660,8,31,8" Grid.Row="2"/>
         <Label Margin="215,5,492,0" Grid.Row="2" Content="Quantité" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
         <Label Margin="385,5,329,5" Grid.Row="2" Content="Expire le" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
