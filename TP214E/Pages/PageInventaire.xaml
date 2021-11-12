@@ -10,40 +10,62 @@
     <Page.Resources>
         <DataTemplate x:Key="AlimentMaquette">
             <StackPanel Orientation="Horizontal">
-                <Label FontWeight="Bold" Content="{Binding Nom}"/>
-                <Label Content="{Binding Quantite}"/>
-                <Label Content="{Binding ExpireLe}"/>
-                <Label Content="{Binding Unite}"/>
+                <Label FontFamily="Rockwell" FontSize="14" FontWeight="Bold" Content="{Binding Nom}"/>
+                <Label Foreground="#1B2B3F" FontFamily="Rockwell" FontSize="14" Content="{Binding Quantite}"/>
+                <Label FontFamily="Rockwell" FontSize="14" Content="{Binding ExpireLe}"/>
+                <Label FontFamily="Rockwell" FontSize="14" Content="{Binding Unite}"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
-    <Grid ShowGridLines="True" Background="NavajoWhite">
+    <Grid Background="#242322">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="800"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="141*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="33*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="291*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="66*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="1" Content="Inventaire" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="178"/>
-        <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="PapayaWhip" Grid.Column="1" Grid.Row="1" x:Name="liste_aliments" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="262"/>
-        <Button Content="Créer" Grid.Column="1" Grid.Row="3" Margin="10,10,452,28" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonCreer_Click"/>
-        <Label Margin="4,5,540,5" Grid.Row="2" Grid.Column="1">Nom</Label>
-        <TextBox x:Name="creer_nom_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Nom, Mode=OneWay}" TextWrapping="Wrap" Grid.Column="1" Margin="40,8,467,8" Grid.Row="2"/>
-        <TextBox x:Name="creer_quantite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Quantite, Mode=OneWay}" TextWrapping="Wrap" Grid.Column="1" Margin="216,8,346,8" Grid.Row="2"/>
-        <TextBox x:Name="creer_date_expiration_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.ExpireLe, Mode=OneWay}" TextWrapping="Wrap" Grid.Column="1" Margin="323,8,175,8" Grid.Row="2"/>
-        <TextBox x:Name="creer_unite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Unite, Mode=OneWay}" TextWrapping="Wrap" Grid.Column="1" Margin="495,8,10,8" Grid.Row="2"/>
-        <Label Margin="152,5,374,5" Grid.Row="2" Grid.Column="1" Content="Quantité"/>
-        <Label Margin="254,5,266,5" Grid.Row="2" Grid.Column="1" Content="Expire le"/>
-        <Label Margin="432,5,105,5" Grid.Row="2" Grid.Column="1" Content="Unité"/>
-        <Button Content="Supprimer" Grid.Column="1" Grid.Row="3" Margin="452,10,10,28" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
-        <Button Content="Modifier" Grid.Column="1" Grid.Row="3" Margin="225,10,237,28" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonModifier_Click"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#ed5f5f" Height="29" Width="59" Click="bouttonRetour_Click"/>
+        <Label Content="Inventaire" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="178"/>
+        <ListBox ItemTemplate="{DynamicResource AlimentMaquette}" Background="#BDD0B5" Grid.Row="1" x:Name="liste_aliments" VerticalAlignment="Center" Height="262" HorizontalAlignment="Center" Width="738"/>
+        <Button Content="Créer" Grid.Row="3" Margin="31,10,538,10" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="boutonCreer_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Margin="26,5,718,5" Grid.Row="2" Foreground="White" FontFamily="Rockwell" FontSize="18">Nom</Label>
+        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_nom_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Nom, Mode=OneWay}" TextWrapping="Wrap" Margin="91,8,590,8" Grid.Row="2"/>
+        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_quantite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Quantite, Mode=OneWay}" TextWrapping="Wrap" Margin="297,8,446,8" Grid.Row="2"/>
+        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_date_expiration_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.ExpireLe, Mode=OneWay}" TextWrapping="Wrap" Margin="476,8,203,8" Grid.Row="2"/>
+        <TextBox FontFamily="Rockwell" FontSize="14" Background="#BDD0B5" x:Name="creer_unite_aliment" Text="{Binding ElementName=liste_aliments, Path=SelectedItem.Unite, Mode=OneWay}" TextWrapping="Wrap" Margin="660,8,31,8" Grid.Row="2"/>
+        <Label Margin="215,5,492,0" Grid.Row="2" Content="Quantité" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Label Margin="385,5,329,5" Grid.Row="2" Content="Expire le" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Label Margin="602,5,145,5" Grid.Row="2" Content="Unité" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Button Content="Supprimer" Grid.Row="3" Margin="536,10,31,10" Background="#ed5f5f" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="boutonSupprimer_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Modifier" Grid.Row="3" Margin="313,10,313,10" Background="#69bcf0" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="boutonModifier_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Background="#ed5f5f" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="bouttonRetour_Click" Height="38" Width="102">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Page>

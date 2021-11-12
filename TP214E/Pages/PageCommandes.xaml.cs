@@ -74,7 +74,7 @@ namespace TP214E
         public void CréerUneCommandeAvecPlatsDuPanier()
         {
             var commandeACreer = new Commande();
-            commandeACreer.PlatsCommande = PlatsDansPanier;
+            commandeACreer.Plats = PlatsDansPanier;
             dalCommandes.AjouterCommande(commandeACreer);
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
         }

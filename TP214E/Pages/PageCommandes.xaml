@@ -26,27 +26,42 @@
     </Page.Resources>
 
 
+    <Grid Background="#242322">
 
-    <Grid Background="NavajoWhite">
-
-        <Button Content="Créer Commande" Margin="574,391,41,29" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonCreerCommande_Click"/>
-        <Button Content="Ajouter Plat" Margin="40,391,575,29" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonAjouterPlat_Click"/>
-        <ListBox ItemTemplate="{DynamicResource PlatMaquette}"  Background="PapayaWhip" Margin="303,196,303,29" x:Name="liste_panier"/>
-        <Label Content="Gestions Commandes" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="440" Margin="0,10,0,0"/>
-        <ListBox ItemTemplate="{DynamicResource PlatMaquette}" Background="PapayaWhip" Margin="40,84,566,142"  x:Name="liste_plats"/>
-        <ListBox Background="PapayaWhip" Margin="565,84,41,141" ItemTemplate="{DynamicResource CommandeMaquette}" x:Name="liste_commande"/>
-        <Label Content="Panier" HorizontalAlignment="Left" Margin="303,167,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
-        <Label Content="Plats" HorizontalAlignment="Left" Margin="40,55,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
-        <Label Content="Historique des commandes" HorizontalAlignment="Left" Margin="574,55,0,0" VerticalAlignment="Top" Width="160" Height="24"/>
-        <Button Content="Retirer plat" Margin="377,162,303,262" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="bouttonRetirer_Click"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#ed5f5f" Height="29" Width="59" Click="bouttonRetour_Click"/>
-
-
-
-
-
-
-
-
+        <Button Content="Créer Commande" Margin="522,391,40,16" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="boutonCreerCommande_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Ajouter Plat" Margin="40,391,524,16" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="boutonAjouterPlat_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Retirer plat" Margin="303,391,303,16" Background="#ed5f5f" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="bouttonRetirer_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ListBox ItemTemplate="{DynamicResource PlatMaquette}"  Background="#BDD0B5" Margin="303,90,303,77" x:Name="liste_panier"/>
+        <Label Content="Gestion Commandes" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="36" FontWeight="Normal" Height="52" Width="372" Margin="0,3,0,0"/>
+        <ListBox ItemTemplate="{DynamicResource PlatMaquette}" Background="#BDD0B5" Margin="40,91,524,77"  x:Name="liste_plats"/>
+        <ListBox Background="#BDD0B5" Margin="522,91,40,77" ItemTemplate="{DynamicResource CommandeMaquette}" x:Name="liste_commande"/>
+        <Label Content="Panier" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Width="68" Height="28" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Label Content="Plats" HorizontalAlignment="Left" Margin="131,57,0,0" VerticalAlignment="Top" Width="54" Height="34" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Label Content="Historique des commandes" HorizontalAlignment="Left" Margin="523,58,0,0" VerticalAlignment="Top" Width="238" Height="33" Foreground="White" FontFamily="Rockwell" FontSize="18"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#ed5f5f" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Click="bouttonRetour_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Page>
