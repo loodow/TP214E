@@ -31,8 +31,7 @@ namespace TP214E
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
         {
             CréerUneCommandeAvecPlatsDuPanier();
-            liste_panier.Items.Clear();
-            PlatsDansPanier.Clear();
+            ViderLePanier();
         }
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
@@ -76,6 +75,12 @@ namespace TP214E
         {
             liste_plats.ItemsSource = plats.Aggregate().ToList();
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
+        }
+
+        public void ViderLePanier()
+        {
+            liste_panier.Items.Clear();
+            PlatsDansPanier.Clear();
         }
 
 
