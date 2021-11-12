@@ -41,7 +41,7 @@ namespace TP214E.Data
             return "Aucun plats dans la commande";
         }
 
-        private double CalculerTotalPrixPlats()
+        public double CalculerTotalPrixPlats()
         {
             double total = 0;
 
