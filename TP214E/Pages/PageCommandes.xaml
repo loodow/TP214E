@@ -24,10 +24,11 @@
 
 
     </Page.Resources>
-    
-    
+
+
 
     <Grid Background="NavajoWhite">
+
         <Button Content="Créer Commande" Margin="574,391,41,29" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonCreerCommande_Click"/>
         <Button Content="Ajouter Plat" Margin="40,391,575,29" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonAjouterPlat_Click"/>
         <ListBox ItemTemplate="{DynamicResource PlatMaquette}"  Background="PapayaWhip" Margin="303,196,303,29" x:Name="liste_panier"/>
@@ -38,6 +39,9 @@
         <Label Content="Plats" HorizontalAlignment="Left" Margin="40,55,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
         <Label Content="Historique des commandes" HorizontalAlignment="Left" Margin="574,55,0,0" VerticalAlignment="Top" Width="160" Height="24"/>
         <Button Content="Retirer plat" Margin="377,162,303,262" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="bouttonRetirer_Click"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#ed5f5f" Height="29" Width="59" Click="bouttonRetour_Click"/>
+
+
 
 
 

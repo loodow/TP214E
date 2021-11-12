@@ -36,7 +36,7 @@ namespace TP214E
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
         {
-            if (liste_plats.SelectedItem != null) 
+            if (liste_plats.SelectedItem != null)
             {
                 AjouterLePlatSelectionneALaListe();
             }
@@ -44,11 +44,15 @@ namespace TP214E
 
         private void bouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
-            if(liste_panier.SelectedItem != null)
+            if (liste_panier.SelectedItem != null)
             {
                 RetiRerLePlatSelectionneDuPanier();
             }
-            
+
+        }
+        private void bouttonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            RetournerALaPageDaccueil();
         }
 
         public void AjouterLePlatSelectionneALaListe()
@@ -82,8 +86,10 @@ namespace TP214E
             liste_panier.Items.Clear();
             PlatsDansPanier.Clear();
         }
-
-
-
+        public void RetournerALaPageDaccueil()
+        {
+            PageAccueil pageAccueil = new PageAccueil();
+            NavigationService.Navigate(pageAccueil);
+        }
     }
 }

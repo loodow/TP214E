@@ -26,6 +26,10 @@ namespace TP214E
             CreerAliment();
             RafraichirListeAliments();
         }
+        private void bouttonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            RetournerALaPageDaccueil();
+        }
 
         private void CreerAliment()
         {
@@ -74,5 +78,12 @@ namespace TP214E
         {
             liste_aliments.ItemsSource = aliments.Aggregate().ToList();
         }
+        public void RetournerALaPageDaccueil()
+        {
+            PageAccueil pageAccueil = new PageAccueil();
+            NavigationService.Navigate(pageAccueil);
+        }
+
+
     }
 }
