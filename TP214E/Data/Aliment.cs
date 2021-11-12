@@ -15,5 +15,17 @@ namespace TP214E.Data
         public int Quantite { get; set; }
         public string Unite { get; set; }
         public DateTime ExpireLe { get; set; }
+        public string ExpireLeSimplifie
+        {
+            get
+            {
+                return ObtenirExpireLeSimplifie();
+            }
+        }
+
+        public string ObtenirExpireLeSimplifie()
+        {
+            return ExpireLe.ToShortDateString();
+        }
     }
 }
