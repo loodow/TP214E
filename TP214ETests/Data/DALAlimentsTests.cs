@@ -3,22 +3,50 @@ using TP214E.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using NUnit.Framework;
+using Moq;
+using MongoDB.Driver;
+using Assert = NUnit.Framework.Assert;
 
 namespace TP214ETests.Data
 {
-    [TestClass()]
+    [TestFixture]
     public class DALAlimentsTests
     {
-        [TestMethod()]
-        public void AjouterAlimentTest()
+        private Mock<IDALAliments> dalAliments;
+
+        [SetUp]
+        public void SetUp()
         {
-            DALAliments dALAliments = new DALAliments();
+            dalAliments = new Mock<IDALAliments>();
         }
 
-        [TestMethod()]
-        public void AlimentsTest()
+        [Test]
+        public void AjouterAliment_Aliment_NeDevraitLancerException()
         {
-            Assert.Fail();
+            // arrange
+            var aliment = new Aliment();
+            aliment.Nom = "nomx";
+
+            dalAliments.Setup(x => x.AjouterAliment(aliment)).Throws(null);
+
+            // assert
+            dalAliments.Verify(x => x.AjouterAliment(aliment));
+        }
+
+        [Test]
+        public void ObtenirAliments_Rien_DevraitRetournerAliments()
+        {
+            List<Aliment> aliments = new List<Aliment>
+            {
+                new Aliment { Nom = "Tomate", ExpireLe = new DateTime(2021, 11, 17), Quantite = 2, Unite = "oui" },
+                new Aliment { Nom = "Orange", ExpireLe = new DateTime(2022, 5, 26), Quantite = 2, Unite = "oui" }
+            };
+
+            dalAliments.Setup(x => x.ObtenirAliments()).Returns((IMongoCollection<Aliment>)aliments);
+            aliments = dalAliments.Object.ObtenirAliments().Aggregate().ToList();
+
+            Assert.AreEqual(aliments, dalAliments.Object.ObtenirAliments());
         }
 
         [TestMethod()]

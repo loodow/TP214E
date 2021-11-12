@@ -10,7 +10,7 @@ namespace TP214E.Data
         private IMongoCollection<Aliment> aliments;
         private const string NOM_COLLECTION_ALIMENTS = "Aliments";
 
-        public IMongoCollection<Aliment> Aliments()
+        public IMongoCollection<Aliment> ObtenirAliments()
         {
             try
             {
