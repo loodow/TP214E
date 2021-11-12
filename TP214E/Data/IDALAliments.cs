@@ -3,10 +3,10 @@ using MongoDB.Driver;
 
 namespace TP214E.Data
 {
-    interface IDALAliments
+    public interface IDALAliments
     {
         void AjouterAliment(Aliment aliment);
-        IMongoCollection<Aliment> Aliments();
+        IMongoCollection<Aliment> ObtenirAliments();
         void ModifierAliment(Aliment aliment, ObjectId idAliment);
         void RetirerAliment(Aliment aliment);
     }

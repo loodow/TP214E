@@ -16,7 +16,7 @@ namespace TP214E
             InitializeComponent();
 
             this.dal = dal;
-            aliments = dal.Aliments();
+            aliments = dal.ObtenirAliments();
 
             RafraichirListeAliments();
         }
