@@ -24,41 +24,66 @@ namespace TP214E
             plats = dalCommandes.Plats();
             commandes = dalCommandes.Commandes();
 
-            liste_plats.ItemsSource = plats.Aggregate().ToList();
-            liste_commande.ItemsSource = commandes.Aggregate().ToList();
+            MiseAjourDesListBoxAvecLaBD();
 
         }
 
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
         {
-            var commandeACreer = new Commande();
-            commandeACreer.PlatsCommande = PlatsDansPanier;
-            dalCommandes.AjouterCommande(commandeACreer);
-            liste_commande.ItemsSource = commandes.Aggregate().ToList();
-            liste_panier.Items.Clear();
-            PlatsDansPanier.Clear();
+            CréerUneCommandeAvecPlatsDuPanier();
+            ViderLePanier();
         }
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
         {
             if (liste_plats.SelectedItem != null) 
-            { 
-                Plat platSelectionne = (Plat)liste_plats.SelectedItem;
-                liste_panier.Items.Add(platSelectionne);
-                PlatsDansPanier.Add(platSelectionne);
+            {
+                AjouterLePlatSelectionneALaListe();
             }
-                
-
         }
 
         private void bouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             if(liste_panier.SelectedItem != null)
             {
-                Plat platSelectionne = (Plat)liste_panier.SelectedItem;
-                liste_panier.Items.Remove(platSelectionne);
+                RetiRerLePlatSelectionneDuPanier();
             }
             
         }
+
+        public void AjouterLePlatSelectionneALaListe()
+        {
+            Plat platSelectionne = (Plat)liste_plats.SelectedItem;
+            liste_panier.Items.Add(platSelectionne);
+            PlatsDansPanier.Add(platSelectionne);
+        }
+
+        public void RetiRerLePlatSelectionneDuPanier()
+        {
+            Plat platSelectionne = (Plat)liste_panier.SelectedItem;
+            liste_panier.Items.Remove(platSelectionne);
+        }
+
+        public void CréerUneCommandeAvecPlatsDuPanier()
+        {
+            var commandeACreer = new Commande();
+            commandeACreer.PlatsCommande = PlatsDansPanier;
+            dalCommandes.AjouterCommande(commandeACreer);
+            liste_commande.ItemsSource = commandes.Aggregate().ToList();
+        }
+        public void MiseAjourDesListBoxAvecLaBD()
+        {
+            liste_plats.ItemsSource = plats.Aggregate().ToList();
+            liste_commande.ItemsSource = commandes.Aggregate().ToList();
+        }
+
+        public void ViderLePanier()
+        {
+            liste_panier.Items.Clear();
+            PlatsDansPanier.Clear();
+        }
+
+
+
     }
 }
