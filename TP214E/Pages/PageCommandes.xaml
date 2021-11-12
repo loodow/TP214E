@@ -17,7 +17,7 @@
 
         <DataTemplate x:Key="CommandeMaquette">
             <StackPanel Orientation="Horizontal">
-                <Label FontWeight="Bold" Content="{Binding _id}"/>
+                <Label FontWeight="Bold" Content="{Binding ChaineFormateePlatsEtTotal}"/>
             </StackPanel>
         </DataTemplate>
 
