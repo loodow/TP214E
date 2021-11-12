@@ -43,5 +43,7 @@
         <Label Margin="432,5,105,5" Grid.Row="2" Grid.Column="1" Content="Unité"/>
         <Button Content="Supprimer" Grid.Column="1" Grid.Row="3" Margin="452,10,10,28" Background="#ed5f5f" FontSize="12" FontFamily="Rockwell" Click="boutonSupprimer_Click"/>
         <Button Content="Modifier" Grid.Column="1" Grid.Row="3" Margin="225,10,237,28" Background="LightGreen" FontSize="12" FontFamily="Rockwell" Click="boutonModifier_Click"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#ed5f5f" Height="29" Width="59" Click="bouttonRetour_Click"/>
+
     </Grid>
 </Page>
