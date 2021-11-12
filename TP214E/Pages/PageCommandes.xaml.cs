@@ -30,8 +30,11 @@ namespace TP214E
 
         private void boutonCreerCommande_Click(object sender, RoutedEventArgs e)
         {
-            CréerUneCommandeAvecPlatsDuPanier();
-            ViderLePanier();
+            if (liste_panier.Items.Count != 0)
+            {
+                CréerUneCommandeAvecPlatsDuPanier();
+                ViderLePanier();
+            }
         }
 
         private void boutonAjouterPlat_Click(object sender, RoutedEventArgs e)
