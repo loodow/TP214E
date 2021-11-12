@@ -12,20 +12,20 @@ namespace TP214E.Data
         }
 
         public ObjectId _id { get; set; }
-        public List<Plat> platsCommande;
+        private List<Plat> plats;
 
-        public List<Plat> PlatsCommande
+        public List<Plat> Plats
         {
             get
             {
-                return platsCommande;
+                return plats;
             }
 
             set
             {
                 if (value.Count > 0)
                 {
-                    platsCommande = value;
+                    plats = value;
                 } 
                 else
                 {
@@ -41,21 +41,21 @@ namespace TP214E.Data
 
         public string ObtenirChaineFormateePlatsEtTotal()
         {
-            if (PlatsCommande.Count == 1)
+            if (Plats.Count == 1)
             {
-                return $"{PlatsCommande[0].Nom} ({CalculerTotalPrixPlats()}$)";
+                return $"{Plats[0].Nom} ({CalculerTotalPrixPlats()}$)";
             }
-            else if (PlatsCommande.Count == 2)
+            else if (Plats.Count == 2)
             {
-                return $"{PlatsCommande[0].Nom}, {PlatsCommande[1].Nom} ({CalculerTotalPrixPlats()}$)";
+                return $"{Plats[0].Nom}, {Plats[1].Nom} ({CalculerTotalPrixPlats()}$)";
             }
-            else if (PlatsCommande.Count == 3)
+            else if (Plats.Count == 3)
             {
-                return $"{PlatsCommande[0].Nom}, {PlatsCommande[1].Nom} + 1 autre ({CalculerTotalPrixPlats()}$)";
+                return $"{Plats[0].Nom}, {Plats[1].Nom} + 1 autre ({CalculerTotalPrixPlats()}$)";
             }
-            else if (PlatsCommande.Count > 3)
+            else if (Plats.Count > 3)
             {
-                return $"{PlatsCommande[0].Nom}, {PlatsCommande[1].Nom} + {PlatsCommande.Count - 2} autres ({CalculerTotalPrixPlats()}$)";
+                return $"{Plats[0].Nom}, {Plats[1].Nom} + {Plats.Count - 2} autres ({CalculerTotalPrixPlats()}$)";
             }
 
             return "Aucun plats dans la commande";
@@ -65,7 +65,7 @@ namespace TP214E.Data
         {
             double total = 0;
 
-            foreach (Plat plat in PlatsCommande)
+            foreach (Plat plat in Plats)
                 total += plat.Prix;
 
             return Math.Round(total, 2);

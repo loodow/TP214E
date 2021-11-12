@@ -35,7 +35,7 @@ namespace TP214ETests.Data
             {
                 lasagne
             };
-            commande = new Commande { PlatsCommande = plats };
+            commande = new Commande { Plats = plats };
 
             string chaineFormateePlatsEtTotal = "Lasagne (1$)";
 
@@ -49,7 +49,7 @@ namespace TP214ETests.Data
             {
                 lasagne, pizza
             };
-            commande = new Commande { PlatsCommande = plats };
+            commande = new Commande { Plats = plats };
 
             string chaineFormateePlatsEtTotal = "Lasagne, Pizza (3$)";
 
@@ -63,7 +63,7 @@ namespace TP214ETests.Data
             {
                 lasagne, pizza, burger
             };
-            commande = new Commande { PlatsCommande = plats };
+            commande = new Commande { Plats = plats };
 
             string chaineFormateePlatsEtTotal = "Lasagne, Pizza + 1 autre (6$)";
 
@@ -77,7 +77,7 @@ namespace TP214ETests.Data
             {
                 lasagne, pizza, burger, ramens
             };
-            commande = new Commande { PlatsCommande = plats };
+            commande = new Commande { Plats = plats };
 
             string chaineFormateePlatsEtTotal = "Lasagne, Pizza + 2 autres (10$)";
 
@@ -91,28 +91,28 @@ namespace TP214ETests.Data
             {
                 lasagne, pizza, burger, ramens
             };
-            commande = new Commande { PlatsCommande = plats };
+            commande = new Commande { Plats = plats };
 
             Assert.AreEqual(10, commande.CalculerTotalPrixPlats());
         }
 
         [Test]
-        public void PlatsCommande_Passe2PlatsCommeListe_NeDevraitLancerException()
+        public void Plats_Passe2PlatsCommeListe_NeDevraitLancerException()
         {
             List<Plat> plats = new List<Plat>
             {
                 lasagne, pizza
             };
 
-            Assert.DoesNotThrow(() => commande = new Commande { PlatsCommande = plats });
+            Assert.DoesNotThrow(() => commande = new Commande { Plats = plats });
         }
 
         [Test]
-        public void PlatsCommande_Passe0PlatsCommeListe_DevraitLancerException()
+        public void Plats_Passe0PlatsCommeListe_DevraitLancerException()
         {
             List<Plat> plats = new List<Plat>();
 
-            var exception = Assert.Throws<Exception>(() => commande = new Commande { PlatsCommande = plats });
+            var exception = Assert.Throws<Exception>(() => commande = new Commande { Plats = plats });
             Assert.AreEqual("La liste de plats ne peut pas être vide.", exception.Message);
         }
 
