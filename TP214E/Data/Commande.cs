@@ -12,7 +12,27 @@ namespace TP214E.Data
         }
 
         public ObjectId _id { get; set; }
-        public List<Plat> PlatsCommande { get; set; }
+        public List<Plat> platsCommande;
+
+        public List<Plat> PlatsCommande
+        {
+            get
+            {
+                return platsCommande;
+            }
+
+            set
+            {
+                if (value.Count > 0)
+                {
+                    platsCommande = value;
+                } 
+                else
+                {
+                    throw new Exception("La liste de plats ne peut pas être vide.");
+                }
+            }
+        }
 
         public string ChaineFormateePlatsEtTotal
         {

@@ -95,5 +95,26 @@ namespace TP214ETests.Data
 
             Assert.AreEqual(10, commande.CalculerTotalPrixPlats());
         }
+
+        [Test]
+        public void PlatsCommande_Passe2PlatsCommeListe_NeDevraitLancerException()
+        {
+            List<Plat> plats = new List<Plat>
+            {
+                lasagne, pizza
+            };
+
+            Assert.DoesNotThrow(() => commande = new Commande { PlatsCommande = plats });
+        }
+
+        [Test]
+        public void PlatsCommande_Passe0PlatsCommeListe_DevraitLancerException()
+        {
+            List<Plat> plats = new List<Plat>();
+
+            var exception = Assert.Throws<Exception>(() => commande = new Commande { PlatsCommande = plats });
+            Assert.AreEqual("La liste de plats ne peut pas être vide.", exception.Message);
+        }
+
     }
 }

@@ -14,7 +14,28 @@ namespace TP214E.Data
 
         public ObjectId _id { get; set; }
         public string Nom { get; set; }
+
         public List<Aliment> Recette { get; set; }
-        public double Prix { get; set; }
+        public double prix;
+
+        public double Prix
+        {
+            get
+            {
+                return prix;
+            }
+
+            set
+            {
+                if (value > 0)
+                {
+                    prix = value;
+                } 
+                else
+                {
+                    throw new Exception("Le prix ne peut être négatif");
+                }
+            }
+        }
     }
 }
