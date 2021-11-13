@@ -8,6 +8,7 @@ namespace TP214E
     {
         private DALCommandes dalCommandes;
         private DALAliments dalAliments;
+        private DALPlats dalPlats;
         public PageAccueil()
         {
             InitializeComponent();
@@ -23,8 +24,9 @@ namespace TP214E
         private void BoutonCommandes_Click(object sender, RoutedEventArgs e)
         {
             dalCommandes = new DALCommandes();
+            dalPlats = new DALPlats();
 
-            PageCommandes frmCommandes = new PageCommandes(dalCommandes);
+            PageCommandes frmCommandes = new PageCommandes(dalCommandes, dalPlats);
 
             NavigationService.Navigate(frmCommandes);
         }
