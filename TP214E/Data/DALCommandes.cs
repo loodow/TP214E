@@ -13,7 +13,7 @@ namespace TP214E.Data
         private const string NOM_COLLECTION_COMMANDES = "Commandes";
         private const string NOM_COLLECTION_PLATS = "Plats";
 
-        public IMongoCollection<Commande> Commandes()
+        public IMongoCollection<Commande> ObtenirCommandes()
         {
             try
             {
@@ -33,7 +33,7 @@ namespace TP214E.Data
             await commandes.InsertOneAsync(commande);
         }
 
-        public IMongoCollection<Plat> Plats()
+        public IMongoCollection<Plat> ObtenirPlats()
         {
             try
             {

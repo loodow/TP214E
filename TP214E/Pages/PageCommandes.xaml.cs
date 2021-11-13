@@ -21,8 +21,8 @@ namespace TP214E
             PlatsDansPanier = new List<Plat>();
 
             this.dalCommandes = dalCommandes;
-            plats = dalCommandes.Plats();
-            commandes = dalCommandes.Commandes();
+            plats = dalCommandes.ObtenirPlats();
+            commandes = dalCommandes.ObtenirCommandes();
 
             MiseAjourDesListBoxAvecLaBD();
 
@@ -34,6 +34,10 @@ namespace TP214E
             {
                 CréerUneCommandeAvecPlatsDuPanier();
                 ViderLePanier();
+            }
+            else
+            {
+                label_erreurCreerCommande.Visibility = Visibility.Visible;
             }
         }
 
@@ -51,7 +55,7 @@ namespace TP214E
             {
                 RetiRerLePlatSelectionneDuPanier();
             }
-
+           
         }
         private void bouttonRetour_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +67,8 @@ namespace TP214E
             Plat platSelectionne = (Plat)liste_plats.SelectedItem;
             liste_panier.Items.Add(platSelectionne);
             PlatsDansPanier.Add(platSelectionne);
+            label_erreurCreerCommande.Visibility = Visibility.Visible;
+
         }
 
         public void RetiRerLePlatSelectionneDuPanier()
@@ -73,10 +79,16 @@ namespace TP214E
 
         public void CréerUneCommandeAvecPlatsDuPanier()
         {
+
             var commandeACreer = new Commande();
             commandeACreer.Plats = PlatsDansPanier;
             dalCommandes.AjouterCommande(commandeACreer);
             liste_commande.ItemsSource = commandes.Aggregate().ToList();
+
+            if (label_erreurCreerCommande.Visibility == Visibility.Visible)
+            {
+                label_erreurCreerCommande.Visibility = Visibility.Hidden;
+            }
         }
         public void MiseAjourDesListBoxAvecLaBD()
         {
