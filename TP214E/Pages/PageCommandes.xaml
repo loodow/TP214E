@@ -63,5 +63,6 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="Erreur: Vous devez avoir des plats dans votre panier" Margin="250,368,241,54" Foreground="#ed5f5f" FontFamily="Rockwell" FontSize="12" Name="label_erreurCreerCommande" Visibility="Hidden"/>
     </Grid>
 </Page>
