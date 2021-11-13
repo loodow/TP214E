@@ -14,14 +14,14 @@ namespace TP214E
         private List<Plat> PlatsDansPanier;
 
 
-        public PageCommandes(DALCommandes dalCommandes)
+        public PageCommandes(DALCommandes dalCommandes, DALPlats dalPlats)
         {
             InitializeComponent();
 
             PlatsDansPanier = new List<Plat>();
 
             this.dalCommandes = dalCommandes;
-            plats = dalCommandes.ObtenirPlats();
+            plats = dalPlats.ObtenirPlats();
             commandes = dalCommandes.ObtenirCommandes();
 
             MiseAjourDesListBoxAvecLaBD();
@@ -67,7 +67,6 @@ namespace TP214E
             Plat platSelectionne = (Plat)liste_plats.SelectedItem;
             liste_panier.Items.Add(platSelectionne);
             PlatsDansPanier.Add(platSelectionne);
-            label_erreurCreerCommande.Visibility = Visibility.Visible;
 
         }
 
