@@ -14,6 +14,8 @@ namespace TP214E.Data
         public ObjectId _id { get; set; }
         private List<Plat> plats;
 
+
+
         public List<Plat> Plats
         {
             get
@@ -31,7 +33,7 @@ namespace TP214E.Data
                 {
                     throw new Exception("La liste de plats ne peut pas être vide.");
                 }
-            }
+            }   
         }
 
         public string ChaineFormateePlatsEtTotal

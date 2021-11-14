@@ -37,5 +37,31 @@ namespace TP214ETests.Data
 
             Assert.AreEqual(plat.Prix, prix);
         }
+
+
+        [Test]
+        public void TestSetRecette_DevraitRaiseException()
+        {
+            List<Aliment> recette = new List<Aliment>();
+
+            Plat plat; 
+
+            var exception = Assert.Throws<Exception>(() => plat = new Plat { Recette = recette });
+            Assert.AreEqual("La liste d'aliments ne peut pas être vide.", exception.Message);
+        }
+
+
+        [Test]
+        public void TestSetRecette_DevraitPasRaiseException()
+        {
+
+            Aliment aliment = new Aliment();
+            List<Aliment> recette = new List<Aliment>();
+            recette.Add(aliment);
+
+            Plat plat;
+
+            Assert.DoesNotThrow(() => plat = new Plat { Recette = recette });
+        }
     }
 }
