@@ -31,7 +31,7 @@ namespace TP214ETests.Data
         {
             List<Plat> lstPlats = new List<Plat> { pizza, lasagne};
 
-            dalPlats.Setup(x=> x.ObtenirPlats()).Returns((IMongoCollection<Plat>)lstPlats);
+            //dalPlats.Setup(x=> x.ObtenirPlats()).Returns((IMongoCollection<Plat>)lstPlats);
 
             lstPlats = dalPlats.Object.ObtenirPlats().Aggregate().ToList();
 

@@ -43,7 +43,7 @@ namespace TP214ETests.Data
                 new Aliment { Nom = "Orange", ExpireLe = new DateTime(2022, 5, 26), Quantite = 2, Unite = "oui" }
             };
 
-            IMongoCollection<Aliment> aliments2 = IMongoCollection<Aliment>();
+            //IMongoCollection<Aliment> aliments2 = IMongoCollection<Aliment>();
 
 
             dalAliments.Setup(x => x.ObtenirAliments()).Returns((IMongoCollection<Aliment>)aliments);
