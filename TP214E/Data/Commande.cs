@@ -7,10 +7,6 @@ namespace TP214E.Data
 {
     public class Commande
     {
-        public Commande()
-        {
-        }
-
         public ObjectId _id { get; set; }
         private List<Plat> plats;
 

@@ -1,7 +1,5 @@
 ﻿using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace TP214E.Data
@@ -25,11 +23,9 @@ namespace TP214E.Data
             return commandes;
         }
 
-
         public async void AjouterCommande(Commande commande)
         {
             await commandes.InsertOneAsync(commande);
         }
-
     }
 }
