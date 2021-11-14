@@ -56,9 +56,7 @@ namespace TP214ETests.Data
         {
 
             Aliment aliment = new Aliment();
-            List<Aliment> recette = new List<Aliment>();
-            recette.Add(aliment);
-
+            List<Aliment> recette = new List<Aliment> { aliment };
             Plat plat;
 
             Assert.DoesNotThrow(() => plat = new Plat { Recette = recette });
